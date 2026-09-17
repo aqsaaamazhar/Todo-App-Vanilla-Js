@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .completed{
+            text-decoration: line-through;
+            color:grey;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+                gap: 30px;
+        }
+
+        li div {
+            display: flex;
+            gap: 10px;
+        }
+        li button {
+        background-color: #fdb238;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+    }
+    li button:hover{
+        background-color: #69727d;
+    }
+    .todo-box {
+            border: 2px dashed #000;
+            padding: 30px;
+            animation: moveDash 1s linear infinite;
+        }
+
+        @keyframes moveDash {
+            to {
+                border-color: transparent;
+            }
+        }
+    .todo-title {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 8px;
+    }
+
+    .todo-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        background-color: #fdb238;
+        animation: underline 1s linear infinite;
+    }
+
+    @keyframes underline {
+        0% {
+            width: 0;
+        }
+
+        50% {
+            width: 100%;
+        }
+
+        100% {
+            width: 0;
+        }
+    }
+    
+    </style>
+  </head>
+  <body>
+    
+   <div class="w-full max-w-[1140px] bg-[#f9f9f9] h-screen flex flex-col gap-4 justify-center items-center m-auto ">
+    <div class=" todo-box w-full max-w-[500px] p-10 border-2 border-dashed border-[#69727d] flex flex-col items-center gap-4">
+        <h1 class="todo-title text-3xl font-semibold  ">Todo App</h1>
+        <input class="border border-gray-300 p-2 rounded-lg" id="todoin" type="text" placeholder="Enter List" />
+        <button class="bg-[#fdb238] text-white px-5 py-3 hover:bg-[#69727d] rounded-lg" id="addBtn" >Submit</button>
+        <ul id="taskList"></ul>
+   </div>
+    </div>
+
+
+
+<script src="script.js">
+
+</script>
+  </body>
+</html>
